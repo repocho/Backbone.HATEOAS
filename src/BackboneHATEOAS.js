@@ -5,10 +5,13 @@
     } else if (typeof module === 'object' && module.exports) {
         module.exports = factory(require('backbone'), require('underscore'));
     } else {
-        root.myModule = factory(root.postal);
+        root.Backbone.HAL = factory(root.Backbone, root._);
     }
 })(this, function (Backbone, _) {
     var Links = {
+        getEmbedded: function () {
+            return this.embedded;
+        },
         getLinks: function () {
             return this.links;
         },
@@ -21,13 +24,16 @@
                 if (found.length === 1) {
                     found = found[0];
                 }
-            } else {
+            } else if (!_.isUndefined(this.links[rel])) {
                 found = this.links[rel];
             }
             return found;
         }
     };
-    var Model = Backbone.Model.extend({
+    var Model = Backbone.Model.extend(_.extend({
+        constructor: function (attributes, options) {
+            Model.__super__.constructor.call(this, this.parse(_.clone(attributes)), options);
+        },
         parse: function (attributes) {
             attributes = attributes || {};
             this.links = attributes._links || {};
@@ -46,14 +52,37 @@
         },
         isNew: function () {
             var self = this.getLink('self');
-            if (self) {
+            if (self || this.id) {
                 return false;
             } else {
                 return true;
             }
+        },
+        toJSON: function () {
+            var links = this.getLinks(),
+                embedded = this.getEmbedded(),
+                cloned;
+
+            cloned = _.clone(this.attributes);
+            if (!_.isEmpty(embedded)) {
+                cloned._embedded = embedded;
+            }
+            if (!_.isEmpty(links)) {
+                cloned._links = links;
+
+            }
+            return cloned;
         }
-    });
-    var Collection = Backbone.Collection.extend({
+
+    }, Links));
+
+    var Collection = Backbone.Collection.extend(_.extend({
+        constructor: function (models, options) {
+            if (!_.isArray(models)) {
+                models = this.parse(_.clone(models));
+            }
+            Collection.__super__.constructor.call(this, models, options);
+        },
         parse: function (object) {
             object = object || {};
             this.links = object._links || {};
@@ -65,7 +94,6 @@
         },
         reset: function (obj, options) {
             options = options || {};
-            delete this.links;
             if (!_.isArray(obj)) {
                 obj = this.parse(_.clone(obj));
             }
@@ -77,13 +105,13 @@
             if (self) {
                 return self.href;
             } else {
-                return Model.__super__.url.call(this);
+                return Collection.__super__.url.call(this);
             }
         }
-    });
-    Model.prototype = _.extend(Model.prototype, Links);
-    Collection.prototype = _.extend(Collection.prototype, Links);
+    }, Links));
+
     Backbone.HAL = {};
     Backbone.HAL.Model = Model;
     Backbone.HAL.Collection = Collection;
+    return Backbone.HAL;
 });

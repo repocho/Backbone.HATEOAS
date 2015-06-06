@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Backbone.HATEOAS Tests</title>
+
+        <link rel='stylesheet' href='../node_modules/mocha/mocha.css' />
+
+    </head>
+    <body>
+        <!-- Required for browser reporter -->
+        <div id="mocha"></div>
+
+        <!-- A container used to inject nodes to execute the tests -->
+        <div id="test-container"></div>
+    </body>
+
+    <!-- Load testing tools -->
+    <script type="text/javascript" src='../node_modules/mocha/mocha.js'></script>
+    <script type="text/javascript" src='../node_modules/chai/chai.js'></script>
+    <script type="text/javascript" src='../node_modules/underscore/underscore.js'></script>
+    <script type="text/javascript" src='../node_modules/backbone/backbone.js'></script>
+    <script type="text/javascript" src="../src/BackboneHATEOAS.js"></script>
+
+    <script type="text/javascript">
+        /* global Backbone, chai, mocha */
+        'use strict';
+        var HAL = Backbone.HAL;
+        var expect = chai.expect;
+        mocha.setup('bdd');
+    </script>
+
+
+    <script type="text/javascript" src="spec/model.js"></script>
+    <script type="text/javascript" src="spec/collection.js"></script>
+
+    <script type="text/javascript">
+        mocha.checkLeaks();
+        mocha.run();
+    </script>
+
+</html>
