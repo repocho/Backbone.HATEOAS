@@ -35,6 +35,7 @@ resource.get('attributeTwo'); //=> "bar"
 resource.url();       //=> "http://customserver.com/api/resource/1"
 resource.getLinks();  //=>  { self: { href: 'http://customserver.com/api/resource/1'}}
 resource.links;       //=>  { self: { href: 'http://customserver.com/api/resource/1'}}
+resource.getLink('self');  //=>  { href: 'http://customserver.com/api/resource/1'}
 resource.getEmbedded();
     //=>    {
     //          items: {
