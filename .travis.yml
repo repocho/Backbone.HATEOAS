@@ -3,4 +3,3 @@ node_js:
   - "0.10"
 after_script:
   istanbul cover node_modules/mocha/bin/_mocha -- -R spec
-  codeclimate < coverage/lcov.info
