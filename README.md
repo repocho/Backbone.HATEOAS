@@ -1,4 +1,4 @@
-Backbone.HATEOAS [![Build Status](https://travis-ci.org/RePoChO/Backbone.HATEOAS.svg?branch=master)](https://travis-ci.org/RePoChO/Backbone.HATEOAS)[![Code Climate](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS/badges/gpa.svg)](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS)[![Test Coverage](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS/badges/coverage.svg)](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS/coverage)
+Backbone.HATEOAS [![Build Status](https://travis-ci.org/RePoChO/Backbone.HATEOAS.svg?branch=master)](https://travis-ci.org/RePoChO/Backbone.HATEOAS) [![Code Climate](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS/badges/gpa.svg)](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS) [![Test Coverage](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS/badges/coverage.svg)](https://codeclimate.com/github/RePoChO/Backbone.HATEOAS/coverage)
 ===========
 Adds to Backbone the possibility to interact with HATEOAS APIs.
 
