@@ -1,6 +1,6 @@
 language: node_js
 node_js:
   - "0.10"
-  after_script:
-    istanbul cover node_modules/mocha/bin/_mocha -- -R spec
-    codeclimate < lcov.info
+after_script:
+  istanbul cover node_modules/mocha/bin/_mocha -- -R spec
+  codeclimate < lcov.info
