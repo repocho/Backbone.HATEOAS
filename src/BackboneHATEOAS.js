@@ -1,13 +1,13 @@
 'use strict';
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['backbone', 'underscore'], factory);
+        define(['underscore', 'backbone'], factory);
     } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory(require('backbone'), require('underscore'));
+        module.exports = factory(require('underscore'), require('backbone'));
     } else {
-        root.Backbone.HAL = factory(root.Backbone, root._);
+        root.Backbone.HAL = factory(root._, root.Backbone);
     }
-})(this, function (Backbone, _) {
+})(this, function (_, Backbone) {
     var Links = {
         getEmbedded: function () {
             return this.embedded;
@@ -32,7 +32,7 @@
     };
     var Model = Backbone.Model.extend(_.extend({
         constructor: function (attributes, options) {
-            Model.__super__.constructor.call(this, this.parse(_.clone(attributes)), options);
+            Model.__super__.constructor.call(this, this.parse.call(this, _.clone(attributes)), options);
         },
         parse: function (attributes) {
             attributes = attributes || {};

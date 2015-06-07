@@ -19,6 +19,7 @@
     <!-- Load testing tools -->
     <script type="text/javascript" src='../node_modules/mocha/mocha.js'></script>
     <script type="text/javascript" src='../node_modules/chai/chai.js'></script>
+    <script type="text/javascript" src='../node_modules/sinon/pkg/sinon.js'></script>
     <script type="text/javascript" src='../node_modules/underscore/underscore.js'></script>
     <script type="text/javascript" src='../node_modules/backbone/backbone.js'></script>
     <script type="text/javascript" src="../src/BackboneHATEOAS.js"></script>
@@ -29,6 +30,7 @@
         var HAL = Backbone.HAL;
         var expect = chai.expect;
         mocha.setup('bdd');
+        console.log(sinon);
     </script>
 
 
