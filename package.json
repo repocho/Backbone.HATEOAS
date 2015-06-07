@@ -1,6 +1,6 @@
 {
   "name": "Backbone.HATEOAS",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Adds to Backbone the possibility to interact with HATEOAS APIs. Currently only supports HAL implementation.",
   "main": "src/BackboneHATEOAS.js",
   "directories": {
