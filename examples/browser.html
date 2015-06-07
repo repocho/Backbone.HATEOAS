@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Backbone.HATEOAS BrowserExample</title>
+
+    </head>
+    <body>
+        <div id="container">
+            <h1>Model Initialize JSON</h1>
+            <pre>
+            {
+                attributeOne: 'foo',
+                attributeTwo: 'bar',
+                _links: {
+                    others: [{
+                        href: 'http://customserver.com/api/resource/2'
+                    }, {
+                        href: 'http://customserver.com/api/resource/3'
+                    }],
+                    self: {
+                        href: 'http://customserver.com/api/resource/1'
+                    }
+                }
+            }</pre>
+            <hr>
+            <h1>Results</h1>
+            <h2>Attributes:</h2>
+            <pre id="attributes"></pre>
+            <h2>Links:</h2>
+            <pre id="links"></pre>
+            <h2>Embedded:</h2>
+            <pre id="embedded"></pre>
+            <h2>TO JSON:</h2>
+            <pre id="tojson"></pre>
+        </div>
+    </body>
+
+    <!-- Load testing tools -->
+    <script type="text/javascript" src='../node_modules/underscore/underscore.js'></script>
+    <script type="text/javascript" src='../node_modules/backbone/backbone.js'></script>
+    <script type="text/javascript" src="../src/BackboneHATEOAS.js"></script>
+
+    <script type="text/javascript">
+        /* global Backbone */
+        'use strict';
+        var model = new Backbone.HAL.Model({
+                attributeOne: 'foo',
+                attributeTwo: 'bar',
+                _links: {
+                    others: [{
+                        href: 'http://customserver.com/api/resource/2'
+                    }, {
+                        href: 'http://customserver.com/api/resource/3'
+                    }],
+                    self: {
+                        href: 'http://customserver.com/api/resource/1'
+                    }
+                }
+            });
+        var attributes = document.getElementById('attributes');
+        attributes.innerText = JSON.stringify(model.attributes);
+
+        var links = document.getElementById('links');
+        links.innerText = JSON.stringify(model.getLinks());
+
+        var embedded = document.getElementById('embedded');
+        embedded.innerText = JSON.stringify(model.getEmbedded());
+
+        var tojson = document.getElementById('tojson');
+        tojson.innerText = JSON.stringify(model.toJSON());
+    </script>
+</html>
