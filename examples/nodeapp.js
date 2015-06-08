@@ -1,9 +1,9 @@
 'use strict';
 /*
  * The require in a normal app should be
- * var HAL = require('Backbone.HATEOAS');
+ * var HAL = require('backbone.hateoas');
  */
-var HAL = require('../src/BackboneHATEOAS.js');
+var HAL = require('../src/Backbone.HATEOAS.js');
 
 var model = new HAL.Model({
     attributeOne: 'foo',

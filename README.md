@@ -52,9 +52,9 @@ resource.get('_links');     //=> undefined
 resource.get('_embedded');  //=> undefined
 ```
 ### Simple use
-Place the file /src/**BackboneHATEOAS.js** in a folder, for instance in the same folder as backbone library. (In the following example is */vendor/backbone/*)
+Place the file /src/**Backbone.HATEOAS.js** in a folder, for instance in the same folder as backbone library. (In the following example is */vendor/backbone/*)
 
-Load BackboneHATEOAS.js always at least after underscore and backbone.
+Load Backbone.HATEOAS.js always at least after underscore and backbone.
 
 The extension is placed in **Backbone.HAL**:
 - Backbone.**HAL**.**Model**
@@ -62,7 +62,7 @@ The extension is placed in **Backbone.HAL**:
 ```html
 <script type="text/javascript" src='/vendor/underscore/underscore.js'></script>
 <script type="text/javascript" src='/vendor/backbone/backbone.js'></script>
-<script type="text/javascript" src="/vendor/backbone/BackboneHATEOAS.js"></script>
+<script type="text/javascript" src="/vendor/backbone/Backbone.HATEOAS.js"></script>
 
 <script type="text/javascript">
     HALModel = Backbone.HAL.Model.extend({
@@ -78,7 +78,7 @@ The extension is placed in **Backbone.HAL**:
 ### Use as AMD Module
 The module returns an object with Model and Collection
 ```javascript
-require(['/vendor/backbone/BackboneHATEOAS'], function(HAL){
+require(['/vendor/backbone/Backbone.HATEOAS'], function(HAL){
     HALModel = HAL.Model.extend({
     });
     var model = new HALModel({});
@@ -89,7 +89,7 @@ require(['/vendor/backbone/BackboneHATEOAS'], function(HAL){
 });
 
 //OR define
-define(['/vendor/backbone/BackboneHATEOAS'], function(HAL){
+define(['/vendor/backbone/Backbone.HATEOAS'], function(HAL){
     HALModel = HAL.Model.extend({
     });
     var model = new HALModel({});
@@ -103,6 +103,23 @@ define(['/vendor/backbone/BackboneHATEOAS'], function(HAL){
 The extension is placed in **Backbone.HAL**:
 - Backbone.**HAL**.**Model**
 - Backbone.**HAL**.**Collection**
+
+### Use as Nodejs Module
+**INSTALL**
+```bash
+$ npm install --save backbone.hateoas
+```
+
+The module returns an object with Model and Collection
+```javascript
+var HAL = require('backbone.hateoas');
+
+HALModel = HAL.Model.extend({});
+var model = new HALModel({});
+
+MyCollection = HAL.Collection.extend({});
+var collection = new MyCollection({});
+```
 
 ## What is HATEOAS
 Definition: **Hypermedia as the Engine of Application State**
