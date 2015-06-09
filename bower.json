@@ -1,13 +1,13 @@
 {
   "name": "Backbone.HATEOAS",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "homepage": "https://github.com/RePoChO/Backbone.HATEOAS",
   "authors": [
     "David Vega <david@zonamail.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/RePoChO/Backbone.HATEOAS.git"
+    "url": "git://github.com/RePoChO/Backbone.HATEOAS.git"
   },
   "description": "Adds to Backbone the possibility to interact with HATEOAS APIs.",
   "main": "src/Backbone.HATEOAS.js",
