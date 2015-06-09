@@ -1,0 +1,35 @@
+{
+  "name": "Backbone.HATEOAS",
+  "version": "0.1.0",
+  "homepage": "https://github.com/RePoChO/Backbone.HATEOAS",
+  "authors": [
+    "David Vega <david@zonamail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RePoChO/Backbone.HATEOAS.git"
+  },
+  "description": "Adds to Backbone the possibility to interact with HATEOAS APIs.",
+  "main": "src/Backbone.HATEOAS.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "Backbone",
+    "HATEOAS",
+    "HAL"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "coverage"
+  ],
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.1"
+  }
+}
